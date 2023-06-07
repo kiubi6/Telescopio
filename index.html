@@ -45,13 +45,22 @@
       </section>
       <section class="resultado">
         <h2>Resultado:</h2>
-        <div id="resultadoA"></div>
+        <div id="resultadoA"><?php calcula_periodo(); ?></div>
       </section>
     </section>
     <footer class="pie">
      Creative Commons versión 3.0 SciSoft 2023
     </footer>
   </section>
+
+  <?php
+  function calcula_periodo() {
+    $G = 6.67 * pow(10, -11);
+    $M = 5.97 * pow(10, 24);
+    $r = (6378 + 593) * 1000; // en metros
+    $periodo = 2 * pi() * sqrt(pow($r, 3) / ($G * $M));
+    echo 'El periodo orbital del telescopio Hubble es ' . $periodo . ' segundos.';
+  }
+  ?>
 </body>
 </html>
-
